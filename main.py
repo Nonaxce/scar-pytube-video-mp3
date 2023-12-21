@@ -34,15 +34,15 @@ def downloadAudio(url_arr):
             else:
                 print(f"""   '\033[31m{url}\033[0m' is not a url""")
         # alerts if all song(s) has been downloaded`
-        print(f"   Your video{isArrayPlural(url_arr)} have finished downloading")
+        print(f"   Your video{is_this_specific_array_have_more_than_one_thing_in_it_aka_plural_like_has_or_have_questionmark(url_arr)} finished downloading")
 
 # will return s char if the array has 2 or more items
 # just to be fancy
-def isArrayPlural(url_arr):
-    if (len(url_arr) < 2):
-        return "s"
+def is_this_specific_array_have_more_than_one_thing_in_it_aka_plural_like_has_or_have_questionmark(url_arr):
+    if (len(url_arr) > 1):
+        return "s have"
     else:
-        return ""
+        return " has"
 
 # function that displays url
 def show_url_arr(url_arr):
@@ -104,7 +104,7 @@ def get_user_input():
 
 
 def main():
-    print(f"""
+    print(f"""\033[31m
     +==============YT TO MP3===============+
     |           Built with Pytube          |
     +______________________________________+
@@ -113,7 +113,7 @@ def main():
     | Enter 2 to remove previous           |
     | Enter 3 to remove all                |
     +--------------------------------------+
-    """)
+    \033[0m""")
     video_arr = get_user_input()
     downloadAudio(video_arr)
 
