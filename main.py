@@ -24,8 +24,8 @@ def downloadAudio(url_arr):
                     video = YouTube(url)
                     stream = video.streams.filter(only_audio=True).first()
                     # downloads the video to the local Downloads folder
-                    
-                    stream.download(('C:/Users/USER/Dropbox/Music Uploads'),filename=f"{video.title} - {video.author}.mp3")
+                
+                    stream.download(('C:/Users/USER/Dropbox/Music Uploads'),filename=f"{videoTitle(video.title)} - {video.author}.mp3")
                     # displays which video has finished downloading
                     print(f"{count}> ( {url} ) This video has finished downloading")
                     count += 1
@@ -48,6 +48,21 @@ def is_this_specific_array_have_more_than_one_thing_in_it_aka_plural_like_has_or
         return "s have"
     else:
         return " has"
+
+
+# replaces illegal characters with -
+def videoTitle(videotitle):
+    videoTitle = ''
+    for char in videotitle:
+        # checks if that character in the string is one of the following
+        # there must be a better way to do this- another built in function i haven't disovered
+        if (char == '/' or char == '\\' or char == ':' or char == '*' or char == '?' or char == '"' or char == '<' or char == '>' or char == '|'):
+            # replaces all illegal characters with a '-'
+            videoTitle += char.replace(char, '-')
+        else:
+            videoTitle += char
+    return videoTitle
+
 
 # function that displays url
 def show_url_arr(url_arr):
