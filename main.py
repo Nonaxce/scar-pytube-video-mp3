@@ -2,8 +2,7 @@ from pytube import YouTube
 import re
 # MUST import pytube for this to work `pip install pytube` on terminal
 # Probably illegal but it's cool
-# HOWEVER please support the artist you like whenever you financially can..
-# ..it would mean a lot them <3
+# however please support the artist you like whenever you financially can..
 
 def downloadAudio(url_arr):
     # checks if the array is empty, which will return a message
